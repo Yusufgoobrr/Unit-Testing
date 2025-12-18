@@ -1,14 +1,37 @@
 package org.amigoscode;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculatorTest {
-    private final Calculator underTest = new Calculator();
+    private Calculator underTest;
+
+    @BeforeEach
+    void setUp() {
+        underTest = new Calculator();
+    }
+
+    @AfterEach
+    void tearDown() {
+
+    }
+
+    // does execute after each class
+    @AfterAll
+    static void afterAll() {
+
+    }
+
+    // does exectute before each class
+    @BeforeAll
+    static void beforeAll() {
+
+    }
 
     @Test
     public void canAddNumbers() {
+        System.out.println("canAddNumbers");
         // 1) setup --> given
 
         var number1 = 3;
@@ -24,5 +47,8 @@ public class CalculatorTest {
         assertThat(actual).isEqualTo(6);
     }
 
-
+    @Test
+    void name() {
+        System.out.println("name");
+    }
 }
